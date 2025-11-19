@@ -77,36 +77,6 @@ npm run lint         # Run ESLint
 | **Radix UI** | Latest | Accessible Components |
 | **Lucide React** | 0.462.0 | Icons |
 
-## 📁 Project Structure
-
-```
-EMUSKI/
-├── src/
-│   ├── assets/
-│   │   ├── Art_direction/     # Manufacturing imagery
-│   │   ├── branduse/          # Social media assets
-│   │   ├── EMUSKI_logo.svg    # Main logo
-│   │   └── *.icon.png         # Icon variations
-│   ├── components/
-│   │   ├── ui/                # Reusable UI components
-│   │   ├── Navigation.tsx     # Main navigation
-│   │   └── *.tsx             # Shared components
-│   ├── pages/
-│   │   ├── LogoEmuski.tsx     # Logo guidelines
-│   │   ├── ColorEmuski.tsx    # Color palette
-│   │   ├── TypographyEmuski.tsx # Typography
-│   │   ├── ArtDirectionEmuski.tsx # Visual design
-│   │   └── BrandEmuski.tsx    # Brand voice & usage
-│   └── lib/
-│       └── utils.ts           # Utility functions
-├── public/
-│   ├── favicon.svg            # Site favicon
-│   ├── sitemap.xml            # SEO sitemap
-│   ├── robots.txt             # Crawl instructions
-│   └── manifest.json          # PWA manifest
-└── dist/                      # Production build
-```
-
 ## 🎯 Brand Guidelines Overview
 
 ### Core Brand Elements
