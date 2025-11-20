@@ -17,6 +17,10 @@ interface FooterNavProps {
 const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
   const location = useLocation();
   
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   const getPageName = () => {
     const path = location.pathname;
     const pageMap: { [key: string]: string } = {
@@ -43,7 +47,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
         <div className="flex flex-col gap-6 md:hidden">
           {/* EMuski Logo & Page Name - Mobile */}
           <div className="text-center">
-            <Link to="/" className="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
+            <Link to="/" onClick={scrollToTop} className="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
               <div className="flex items-center gap-2">
                 <img 
                   src={EmuskiIcon} 
@@ -65,6 +69,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
               {prevPage ? (
                 <Link 
                   to={prevPage.href}
+                  onClick={scrollToTop}
                   className="group inline-flex items-center gap-2 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-2 rounded-lg hover:bg-gray-50 w-full"
                 >
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[#4fd3d4] transition-colors duration-300 flex-shrink-0">
@@ -85,6 +90,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
               {nextPage ? (
                 <Link 
                   to={nextPage.href}
+                  onClick={scrollToTop}
                   className="group inline-flex items-center gap-2 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-2 rounded-lg hover:bg-gray-50 w-full justify-end"
                 >
                   <div className="text-right min-w-0">
@@ -109,6 +115,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
             {prevPage ? (
               <Link 
                 to={prevPage.href}
+                onClick={scrollToTop}
                 className="group inline-flex items-center gap-4 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-3 rounded-lg hover:bg-gray-50"
               >
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 group-hover:bg-[#4fd3d4] transition-colors duration-300">
@@ -126,7 +133,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
 
           {/* EMuski Logo & Page Name - Desktop */}
           <div className="flex-shrink-0 mx-4 lg:mx-8 text-center">
-            <Link to="/" className="group flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
+            <Link to="/" onClick={scrollToTop} className="group flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
               <div className="flex items-center gap-3">
                 <img 
                   src={EmuskiIcon} 
@@ -146,6 +153,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
             {nextPage ? (
               <Link 
                 to={nextPage.href}
+                onClick={scrollToTop}
                 className="group inline-flex items-center gap-4 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-3 rounded-lg hover:bg-gray-50"
               >
                 <div className="text-right min-w-0">
