@@ -38,9 +38,73 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
 
   return (
     <footer className="border-t border-gray-100 bg-white/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex items-center justify-between">
-          {/* Previous Page */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        {/* Mobile Layout */}
+        <div className="flex flex-col gap-6 md:hidden">
+          {/* EMuski Logo & Page Name - Mobile */}
+          <div className="text-center">
+            <Link to="/" className="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
+              <div className="flex items-center gap-2">
+                <img 
+                  src={EmuskiIcon} 
+                  alt="EMUSKI Icon" 
+                  className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="text-left">
+                  <div className="text-lg font-bold text-gray-900 group-hover:text-[#4fd3d4] transition-colors duration-300">EMUSKI</div>
+                  <div className="text-xs text-[#4fd3d4] font-medium">{getPageName()}</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Mobile */}
+          <div className="flex items-center justify-between gap-4">
+            {/* Previous Page - Mobile */}
+            <div className="flex-1">
+              {prevPage ? (
+                <Link 
+                  to={prevPage.href}
+                  className="group inline-flex items-center gap-2 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-2 rounded-lg hover:bg-gray-50 w-full"
+                >
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[#4fd3d4] transition-colors duration-300 flex-shrink-0">
+                    <ArrowLeft className="w-4 h-4 group-hover:text-white transition-all duration-300" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Previous</div>
+                    <div className="font-semibold text-gray-900 text-sm truncate">{prevPage.label}</div>
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
+
+            {/* Next Page - Mobile */}
+            <div className="flex-1 flex justify-end">
+              {nextPage ? (
+                <Link 
+                  to={nextPage.href}
+                  className="group inline-flex items-center gap-2 text-gray-600 hover:text-[#4fd3d4] transition-all duration-300 p-2 rounded-lg hover:bg-gray-50 w-full justify-end"
+                >
+                  <div className="text-right min-w-0">
+                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Next</div>
+                    <div className="font-semibold text-gray-900 text-sm truncate">{nextPage.label}</div>
+                  </div>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[#4fd3d4] transition-colors duration-300 flex-shrink-0">
+                    <ArrowRight className="w-4 h-4 group-hover:text-white transition-all duration-300" />
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between">
+          {/* Previous Page - Desktop */}
           <div className="flex-1 min-w-0">
             {prevPage ? (
               <Link 
@@ -60,8 +124,8 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
             )}
           </div>
 
-          {/* EMuski Logo & Page Name */}
-          <div className="flex-shrink-0 mx-8 text-center">
+          {/* EMuski Logo & Page Name - Desktop */}
+          <div className="flex-shrink-0 mx-4 lg:mx-8 text-center">
             <Link to="/" className="group flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-gray-50/80 transition-colors duration-300">
               <div className="flex items-center gap-3">
                 <img 
@@ -77,7 +141,7 @@ const FooterNav = ({ prevPage, nextPage }: FooterNavProps) => {
             </Link>
           </div>
 
-          {/* Next Page */}
+          {/* Next Page - Desktop */}
           <div className="flex-1 flex justify-end min-w-0">
             {nextPage ? (
               <Link 
